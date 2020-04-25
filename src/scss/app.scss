@@ -1,4 +1,5 @@
-$primary-color: slateblue;
+@import 'config';
+
 
 * {
     box-sizing: border-box;
@@ -7,32 +8,74 @@ $primary-color: slateblue;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: $primary-color;
-    color: #fff;
+    font-family: $font-stack;
+    background-color: $secondary-color;
     line-height: 1.5;
 }
 
-ul {
-    list-style: none;
+a {
+    text-decoration: none;
+}
+
+.showcase {
+    // background-color: $primary-color;
+    // color: set-text-color($primary-color);
+    @include set-background($primary-color);
+    height: 800px;
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        ul {
+            display: flex;
+            list-style-type: none;
+        }
+
+        li {
+            padding: 15px;
+        }
+
+        a {
+            color: set-text-color($primary-color);
+        }
+        a:hover {
+            color: #fff;
+        }
+    }
+
+
+    &-content {
+        height: 100%;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+
+        img {
+            width: 50%;
+        }
+
+        h1 {
+            font-size: 50px;
+            line-height: 1.2;
+        }
+
+    }
 }
 
 .container {
     max-width: 1100px;
+    padding: 0 30px;
     margin: 0 auto;
-    padding: 0 20px;
     overflow: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: column;
-    justify-content: center;
-    height: 100vh;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 40px;
-    background: rgba(0, 0, 0, 0.3);
-    padding: 30px;
-    border-bottom: 5px #fff solid;
+img {
+    width: 100%;
 }
+
+@import 'utilities';
+@import 'buttons';
+@import 'mobile';
